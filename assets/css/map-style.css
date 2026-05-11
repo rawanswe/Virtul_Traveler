@@ -1,0 +1,130 @@
+/* --- ستايل نافذة الحجز (Modal) الفخم --- */
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    /* تأكدي أن العرض كافي */
+    width: 100%; 
+    max-width: 1200px;
+}
+.modal {
+    position: fixed;
+    z-index: 9999; /* عشان تطلع فوق كل شيء */
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* تعتيم خلفية الصفحة */
+    display: none; /* مخفي بالبداية، يظهر عبر الجافا سكريبت display: flex */
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* تغبيش الخلفية */
+}
+
+.modal-content {
+    background: #1e293b; /* لون داكن متناسق مع تصميمك */
+    padding: 40px;
+    border-radius: 25px;
+    border: 2px solid #f1c40f; /* إطار ذهبي */
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    box-shadow: 0 0 30px rgba(241, 196, 15, 0.2);
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    font-size: 30px;
+    color: #cbd5e1;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close:hover { color: #f1c40f; }
+
+/* --- تنسيق المدخلات داخل النافذة --- */
+.input-group {
+    margin-bottom: 20px;
+    text-align: right;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    background: #0f172a;
+    color: white;
+    outline: none;
+}
+
+.login-btn {
+    width: 100%;
+    padding: 15px;
+    background: #f1c40f;
+    border: none;
+    border-radius: 10px;
+    color: #0f172a;
+    font-weight: bold;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background: #d4ac0d;
+    transform: translateY(-3px);
+}
+
+/* --- زر الحجز داخل بطاقة الدولة --- */
+.book-now-btn {
+    background: #f1c40f;
+    color: #0f172a;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    margin-top: 10px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.book-now-btn:hover {
+    background: #fff;
+    transform: scale(1.1);
+}
+
+/* --- زر "عرض حجوزاتي" العائم --- */
+.view-bookings-btn {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    background: #f1c40f;
+    color: #0f172a;
+    padding: 15px 25px;
+    border-radius: 50px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    z-index: 100;
+    transition: 0.3s;
+}
+
+.view-bookings-btn:hover {
+    transform: scale(1.1) rotate(-3deg);
+}
